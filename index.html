@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Fahim Najme | Software Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+    background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+    -webkit-background-clip: text; /* Untuk Chrome/Safari */
+    background-clip: text;         /* Standard property (WAJIB TAMBAH) */
+    -webkit-text-fill-color: transparent;
+}
+
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(59, 130, 246, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="hero-blob top-[-100px] left-[-100px]"></div>
+    <div class="hero-blob bottom-[-100px] right-[-100px]"></div>
+
+    <!-- Modern Navigation -->
+    <nav class="fixed w-full z-50 top-0 px-4 pt-4">
+        <div class="max-w-5xl mx-auto glass rounded-2xl px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter">
+                <span class="text-white">Fahim Najme Ikhwan</span><span class="text-blue-500">.</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+                <a href="#experience" class="hover:text-blue-400 transition">Experience</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-900/20 flex items-center gap-2">
+                    <i class="fab fa-linkedin"></i> Profile
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 px-4">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider mb-6">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                    </span>
+                    Available for Internship Sept 2026
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+                    Software <br><span class="text-gradient">Developer</span>
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 leading-relaxed">
+                    I'm Fahim Najme, a Computer Science student at UniSZA focused on building high-impact, efficient systems. Specializing in Flutter, Web Development, and Database Integration.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition flex items-center gap-2 group">
+                        Explore My Work
+                        <i class="fas fa-arrow-right text-sm group-hover:translate-x-1 transition"></i>
+                    </a>
+                    <div class="flex items-center gap-4 px-2">
+                        <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="text-2xl text-slate-400 hover:text-white transition" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:fahimfauzi2783@gmail.com" class="text-2xl text-slate-400 hover:text-white transition" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="relative hidden md:block" data-aos="zoom-in">
+                <div class="w-full aspect-square glass rounded-[3rem] overflow-hidden p-8 flex items-center justify-center">
+                    <div class="w-full h-full bg-gradient-to-br from-blue-600 to-indigo-900 rounded-[2rem] flex items-center justify-center">
+                         <i class="fas fa-code text-8xl text-white/20"></i>
+                    </div>
+                </div>
+                <!-- Floating Stats -->
+                <div class="absolute -bottom-6 -left-6 glass p-6 rounded-2xl shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-3xl font-bold text-white">3.54</div>
+                    <div class="text-xs text-slate-400 font-bold uppercase tracking-widest">Current CGPA</div>
+                </div>
+                <div class="absolute -top-6 -right-6 glass p-6 rounded-2xl shadow-2xl" data-aos="fade-down" data-aos-delay="400">
+                    <div class="text-3xl font-bold text-blue-500">3x</div>
+                    <div class="text-xs text-slate-400 font-bold uppercase tracking-widest">Dean's List</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-12 bg-slate-900/50 border-y border-white/5">
+        <div class="max-w-5xl mx-auto px-4 overflow-hidden">
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition duration-500">
+                <div class="flex items-center gap-3"><i class="fab fa-flutter text-3xl"></i> <span class="font-bold">FLUTTER</span></div>
+                <div class="flex items-center gap-3"><i class="fab fa-php text-3xl"></i> <span class="font-bold">PHP</span></div>
+                <div class="flex items-center gap-3"><i class="fab fa-python text-3xl"></i> <span class="font-bold">PYTHON</span></div>
+                <div class="flex items-center gap-3"><i class="fab fa-js text-3xl"></i> <span class="font-bold">JAVASCRIPT</span></div>
+                <div class="flex items-center gap-3"><i class="fas fa-database text-3xl"></i> <span class="font-bold">MYSQL</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+                <div data-aos="fade-right">
+                    <h2 class="text-sm font-bold text-blue-500 uppercase tracking-[0.3em] mb-2">Portfolio</h2>
+                    <h3 class="text-4xl font-bold">Featured Projects</h3>
+                </div>
+                <p class="text-slate-400 max-w-sm" data-aos="fade-left">
+                    A collection of mobile applications, web systems, and digital transformations I've built.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1: Trackza -->
+                <div class="group glass rounded-[2.5rem] p-8 card-hover" data-aos="fade-up">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-14 h-14 bg-blue-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-blue-900/40">
+                            <i class="fas fa-location-arrow"></i>
+                        </div>
+                        <span class="text-xs font-bold py-1 px-3 glass rounded-full text-blue-400">FLUTTER + FIREBASE</span>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Trackza: Bus Tracking</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Mobile application for UniSZA students to monitor campus bus locations in real-time. Integrated Google Maps API for accurate Estimated Time of Arrival (ETA).
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="text-xs font-bold text-white/50 uppercase tracking-widest italic">Ongoing Project</div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Drive N Rent -->
+                <div class="group glass rounded-[2.5rem] p-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-14 h-14 bg-emerald-600 rounded-2xl flex items-center justify-center text-2xl shadow-lg shadow-emerald-900/40">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <span class="text-xs font-bold py-1 px-3 glass rounded-full text-emerald-400">PHP + MYSQL</span>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-3">Drive N Rent</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        A digital car rental booking system featuring comprehensive vehicle management and full technical documentation (DFD/ERD).
+                    </p>
+                    <div class="flex gap-4">
+                        <div class="text-xs font-bold text-white/50 uppercase tracking-widest italic">Academic Group Project</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Activities -->
+    <section id="experience" class="py-24 bg-slate-900/30">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 text-center text-gradient">Experience & Activities</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Work Experience -->
+                <div data-aos="fade-right">
+                    <h3 class="text-xl font-bold mb-8 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-500 flex items-center justify-center text-sm"><i class="fas fa-briefcase"></i></span>
+                        Work Experience
+                    </h3>
+                    <div class="space-y-8 relative before:absolute before:left-[15px] before:top-2 before:bottom-2 before:w-[2px] before:bg-white/5">
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 top-1 w-8 h-8 rounded-full glass border border-white/10 flex items-center justify-center z-10 text-[10px]">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                            </div>
+                            <h4 class="font-bold text-white">Bartender | BananaBro</h4>
+                            <p class="text-xs text-blue-400 font-bold mb-2">2025 (July - Oct)</p>
+                            <p class="text-sm text-slate-400 leading-relaxed italic">
+                                Managed 50-100 orders daily under high-pressure conditions. Focused on service quality and operational speed.
+                            </p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 top-1 w-8 h-8 rounded-full glass border border-white/10 flex items-center justify-center z-10 text-[10px]">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                            </div>
+                            <h4 class="font-bold text-white">Sales Assistant | Aeon Rawang</h4>
+                            <p class="text-xs text-blue-400 font-bold mb-2">2024 (July - Oct)</p>
+                            <p class="text-sm text-slate-400 leading-relaxed">
+                                Ensured compliance with food safety standards and efficient inventory management.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Leadership -->
+                <div data-aos="fade-left">
+                    <h3 class="text-xl font-bold mb-8 flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-500 flex items-center justify-center text-sm"><i class="fas fa-award"></i></span>
+                        Leadership at UniSZA
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="glass p-5 rounded-2xl flex gap-4 items-center border-l-4 border-l-blue-600">
+                            <div class="text-2xl text-blue-600 opacity-50"><i class="fas fa-shield-halved"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm">Floor Leader (Residential College)</h4>
+                                <p class="text-xs text-slate-500">Session 24/25 & 25/26</p>
+                            </div>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex gap-4 items-center border-l-4 border-l-purple-600">
+                            <div class="text-2xl text-purple-600 opacity-50"><i class="fas fa-university"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm">Exco JPMPP (SRC UniSZA)</h4>
+                                <p class="text-xs text-slate-500">Session 24/25 & 25/26</p>
+                            </div>
+                        </div>
+                        <div class="glass p-5 rounded-2xl flex gap-4 items-center border-l-4 border-l-orange-600">
+                            <div class="text-2xl text-orange-600 opacity-50"><i class="fas fa-running"></i></div>
+                            <div>
+                                <h4 class="font-bold text-sm">Committee Terengganu Marathon</h4>
+                                <p class="text-xs text-slate-500">Logistics | 33,500 Participants</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-4 text-center relative">
+        <div class="max-w-3xl mx-auto glass p-12 rounded-[3rem] border border-blue-500/20">
+            <h2 class="text-4xl font-extrabold mb-6">Let's <span class="text-gradient">Connect.</span></h2>
+            <p class="text-slate-400 mb-10 text-lg">
+                I am ready to bring value to your organization through my technical skills and leadership experience.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="mailto:fahimfauzi2783@gmail.com" class="px-8 py-4 bg-white text-slate-900 rounded-2xl font-bold hover:bg-blue-50 transition flex items-center justify-center gap-3">
+                    <i class="fas fa-paper-plane text-blue-600"></i> Email Me
+                </a>
+                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="px-8 py-4 glass border border-white/10 rounded-2xl font-bold hover:bg-white/5 transition flex items-center justify-center gap-3">
+                    <i class="fab fa-linkedin text-blue-400"></i> LinkedIn Profile
+                </a>
+            </div>
+            
+            <div class="mt-16 pt-16 border-t border-white/5 text-sm text-slate-500">
+                <div class="flex justify-center gap-8 mb-8">
+                    <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="hover:text-blue-400 transition uppercase tracking-widest font-bold">Linkedin</a>
+                    <a href="mailto:fahimfauzi2783@gmail.com" class="hover:text-blue-400 transition uppercase tracking-widest font-bold">Email</a>
+                    <a href="tel:+601123278236" class="hover:text-blue-400 transition uppercase tracking-widest font-bold">Phone</a>
+                </div>
+                <p>© 2026 Fahim Najme Ikhwan. Built with Flutter & Web Expertise.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
