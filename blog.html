@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackza DevLog | Fahim Najme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+            filter: blur(40px);
+            z-index: -1;
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="hero-blob top-[10%] left-[-100px]"></div>
+    <div class="hero-blob bottom-[20%] right-[-100px]"></div>
+
+    <!-- Modern Navigation -->
+    <nav class="fixed w-full z-50 top-0 px-4 pt-4">
+        <div class="max-w-5xl mx-auto glass rounded-2xl px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter">
+                <a href="index.html"><span class="text-white">Fahim Najme Ikhwan</span><span class="text-blue-500">.</span></a>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+                <a href="about.html" class="hover:text-blue-400 transition">About</a>
+                <a href="blog.html" class="text-blue-400 transition">Blog</a>
+                <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
+                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-900/20 flex items-center gap-2">
+                    <i class="fab fa-linkedin"></i> Profile
+                </a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden max-w-5xl mx-auto mt-2 glass rounded-2xl p-4 flex flex-col space-y-4 text-center text-sm font-medium md:hidden">
+            <a href="index.html" class="hover:text-blue-400 py-2 border-b border-white/5">Home</a>
+            <a href="about.html" class="hover:text-blue-400 py-2 border-b border-white/5">About</a>
+            <a href="blog.html" class="text-blue-400 py-2 border-b border-white/5">Blog</a>
+            <a href="contact.html" class="hover:text-blue-400 py-2">Contact</a>
+            <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl justify-center flex items-center gap-2">
+                <i class="fab fa-linkedin"></i> Profile
+            </a>
+        </div>
+    </nav>
+
+    <!-- Blog Directory Section -->
+    <main class="min-h-screen pt-32 pb-24 px-4">
+        <div class="max-w-5xl mx-auto">
+            
+            <div class="mb-16" data-aos="fade-right">
+                <h2 class="text-sm font-bold text-blue-500 uppercase tracking-[0.3em] mb-2">Trackza Engineering Log</h2>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">The <span class="text-gradient">Trackza</span> Series</h1>
+                <p class="text-slate-400 max-w-xl">A specialized technical deep-dive into the architectural decisions, logic structures, and core data pipelines built for the UniSZA Bus Tracking System.</p>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Article 1 -->
+                <article class="glass rounded-3xl p-6 flex flex-col card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-xs font-bold text-blue-400 mb-3 uppercase tracking-wider">Part 1: State & Streams</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Optimizing Async GPS Location Streams in Dart</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        How I solved stream latency problems and throttled driver coordinate uploads to optimize battery performance.
+                    </p>
+                    <div class="pt-4 border-t border-white/5 flex justify-between items-center text-xs text-slate-500">
+                        <span>Development Log</span>
+                        <button onclick="openModal('streams')" class="text-blue-400 font-semibold hover:underline bg-transparent border-none cursor-pointer">Read Logic →</button>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="glass rounded-3xl p-6 flex flex-col card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-xs font-bold text-emerald-400 mb-3 uppercase tracking-wider">Part 2: API Integration</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Dynamic Marker Rendering via Google Maps API</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Managing reactive map camera view states and mapping live database coordinates seamlessly into custom visual markers.
+                    </p>
+                    <div class="pt-4 border-t border-white/5 flex justify-between items-center text-xs text-slate-500">
+                        <span>Development Log</span>
+                        <button onclick="openModal('maps')" class="text-emerald-400 font-semibold hover:underline bg-transparent border-none cursor-pointer">Read Logic →</button>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="glass rounded-3xl p-6 flex flex-col card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-xs font-bold text-purple-400 mb-3 uppercase tracking-wider">Part 3: Backend Schema</div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Designing Lightweight Live NoSQL Schemas</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
+                        Structuring Cloud Firestore document collections to allow instant student reads while minimizing cloud network costs.
+                    </p>
+                    <div class="pt-4 border-t border-white/5 flex justify-between items-center text-xs text-slate-500">
+                        <span>Development Log</span>
+                        <button onclick="openModal('backend')" class="text-purple-400 font-semibold hover:underline bg-transparent border-none cursor-pointer">Read Logic →</button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- INTERACTIVE MODAL CONTAINER -->
+    <div id="articleModal" class="fixed inset-0 z-50 overflow-y-auto hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="glass max-w-2xl w-full rounded-[2.5rem] p-8 md:p-10 relative max-h-[85vh] overflow-y-auto border border-white/10 shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white transition text-lg">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="modalContent" class="prose prose-invert max-w-none"></div>
+        </div>
+    </div>
+
+    <!-- Hidden HTML Templates (Cleaned & Free From System Tags) -->
+    <div class="hidden">
+        <div id="content-streams">
+            <span class="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-2">Trackza Core • Part 1</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Handling Async Location Streams in Dart</h2>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                During the initial development blueprint of <strong>Trackza</strong>, the primary technical friction was streaming frequency. Constant raw coordinate updates flooded the backend network layer, leading to high cellular battery drain on the driver's device.
+            </p>
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">The Solution Logic:</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                I applied a specialized distance filter layer inside the Dart ecosystem using the geolocator package setting. Instead of streaming coordinates continuously over arbitrary seconds, the tracking hardware only executes a network write if the campus transit vehicle moves structural coordinates by more than 10 meters.
+            </p>
+            <div class="bg-slate-900/90 rounded-xl p-4 font-mono text-xs text-blue-300 border border-white/5 mb-4 overflow-x-auto whitespace-pre">Geolocator.getPositionStream(
+  locationSettings: LocationSettings(
+    accuracy: LocationAccuracy.high,
+    distanceFilter: 10
+  )
+).listen((Position position) {
+  updateBusLocationInFirestore(position);
+});</div>
+            <p class="text-slate-400 text-xs italic">Result: Safely preserves host battery allocations while delivering hyper-accurate map locations.</p>
+        </div>
+
+        <div id="content-maps">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-2">Trackza Core • Part 2</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Reactive Google Maps API Target Mapping</h2>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                When the transport driver changes coordinates, the active student application interface must catch the map change immediately and update the localized vehicle position marker without disrupting the user's active UI view state.
+            </p>
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">The Google Maps Controller Logic:</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                Instead of re-instantiating the map state (which causes unpleasant screen flickering), I utilized the native GoogleMapController class to dynamically animate target coordinates smoothly over the viewport matrix.
+            </p>
+            <div class="bg-slate-900/90 rounded-xl p-4 font-mono text-xs text-emerald-300 border border-white/5 mb-4 overflow-x-auto whitespace-pre">mapController.animateCamera(
+  CameraUpdate.newCameraPosition(
+    CameraPosition(
+      target: LatLng(liveLatitude, liveLongitude),
+      zoom: 16.5
+    )
+  )
+);</div>
+            <p class="text-slate-400 text-sm leading-relaxed">
+                Markers are stored as plain reactive states in Dart, letting the Flutter framework rebuild map elements asynchronously without freezing the app thread.
+            </p>
+        </div>
+
+        <div id="content-backend">
+            <span class="text-xs font-bold text-purple-400 uppercase tracking-widest block mb-2">Trackza Core • Part 3</span>
+            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Lightweight Live NoSQL Schemas</h2>
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                In a campus ecosystem with hundreds of active student devices checking routes, an un-optimized Firestore structure can instantly spike cloud database usage costs.
+            </p>
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">The Firestore Hierarchy Optimization:</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                Instead of logging an immutable list of tracking records for historical logs, I isolated active locations into a high-speed singular document schema. Student apps listen directly to this atomic document snapshot.
+            </p>
+            <div class="bg-slate-900/90 rounded-xl p-4 font-mono text-xs text-purple-300 border border-white/5 mb-2 overflow-x-auto whitespace-pre">/unisza_bus_fleet (Collection)
+   /route_alpha (Document)
+      - bus_id: "UniSZA-B01"
+      - is_active: true
+      - current_coords: GeoPoint(5.397, 103.041)
+      - last_updated: Timestamp</div>
+            <p class="text-slate-400 text-sm leading-relaxed mt-2">
+                This keeps network fetch operations linear at O(1) lookup complexity, optimizing read efficiency across the entire student fleet.
+            </p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center p-6 border-t border-white/5 text-sm text-slate-500 glass">
+        <p>© 2026 Fahim Najme Ikhwan. Built with Flutter, Dart & Pride.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Mobile Menu Toggler
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(menuBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Bulletproof Modal Function
+        function openModal(key) {
+            const modal = document.getElementById('articleModal');
+            const container = document.getElementById('modalContent');
+            const sourceHTML = document.getElementById('content-' + key);
+            
+            if(modal && container && sourceHTML) {
+                container.innerHTML = sourceHTML.innerHTML;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; 
+            }
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('articleModal');
+            if(modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('articleModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

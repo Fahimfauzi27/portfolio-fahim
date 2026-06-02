@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Fahim Najme</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+            filter: blur(40px);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="hero-blob top-[20%] right-[-100px]"></div>
+    <div class="hero-blob bottom-[10%] left-[-100px]"></div>
+
+    <!-- Modern Navigation -->
+    <nav class="fixed w-full z-50 top-0 px-4 pt-4">
+        <div class="max-w-5xl mx-auto glass rounded-2xl px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-extrabold tracking-tighter">
+                <a href="index.html"><span class="text-white">Fahim Najme Ikhwan</span><span class="text-blue-500">.</span></a>
+            </div>
+            
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+                <a href="about.html" class="text-blue-400 transition">About</a>
+                <a href="blog.html" class="hover:text-blue-400 transition">Blog</a>
+                <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
+                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-900/20 flex items-center gap-2">
+                    <i class="fab fa-linkedin"></i> Profile
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Menu">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden max-w-5xl mx-auto mt-2 glass rounded-2xl p-4 flex flex-col space-y-4 text-center text-sm font-medium md:hidden">
+            <a href="index.html" class="hover:text-blue-400 py-2 border-b border-white/5">Home</a>
+            <a href="about.html" class="text-blue-400 py-2 border-b border-white/5">About</a>
+            <a href="blog.html" class="hover:text-blue-400 py-2 border-b border-white/5">Blog</a>
+            <a href="contact.html" class="hover:text-blue-400 py-2">Contact</a>
+            <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl justify-center flex items-center gap-2">
+                <i class="fab fa-linkedin"></i> Profile
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main About Content -->
+    <main class="min-h-screen pt-32 pb-24 px-4">
+        <div class="max-w-4xl mx-auto">
+            
+            <!-- Introduction Header -->
+            <div class="text-center mb-16" data-aos="fade-down">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">About <span class="text-gradient">Myself</span></h1>
+                <p class="text-slate-400 max-w-xl mx-auto">Discover my academic journey, background experience, and the leadership milestones that define my professional identity.</p>
+            </div>
+
+            <!-- Professional Resume Summary Card -->
+            <div class="glass rounded-[2.5rem] p-8 md:p-12 mb-12" data-aos="fade-up">
+                <div class="grid md:grid-cols-3 gap-8 items-start">
+                    <div class="md:col-span-1 flex justify-center">
+                        <div class="w-40 h-40 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
+                            <i class="fas fa-user-tie text-6xl text-white/90"></i>
+                        </div>
+                    </div>
+                    <div class="md:col-span-2">
+                        <h2 class="text-2xl font-bold mb-4 text-white">Professional Summary</h2>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            I am an analytical and driven <span class="text-blue-400 font-semibold">Bachelor of Science in Computer Science (Software Development) with Honours</span> student at Universiti Sultan Zainal Abidin (UniSZA). Maintaining a strong academic track record with a <span class="text-blue-400 font-semibold">3.54 CGPA and 3x Dean's List recognitions</span>, I actively bridge the gap between complex computing theory and clean, production-ready software solutions[cite: 1].
+                        </p>
+                        <p class="text-slate-300 leading-relaxed mb-4">
+                            My development expertise is heavily rooted in mobile and web ecosystems, demonstrated through the architecture of <span class="text-emerald-400 font-semibold">Trackza</span>—a real-time GPS campus bus tracking mobile application utilizing Flutter and Firebase integration[cite: 1]. I am highly passionate about deploying clean code, managing real-time data pipelines, and creating intuitive user experiences[cite: 1].
+                        </p>
+                        <p class="text-slate-300 leading-relaxed">
+                            Beyond technical coding, I lean strongly into leadership and operational execution[cite: 1]. Serving as an active <span class="text-purple-400 font-semibold">Exco JPMPP for the Student Representative Council (SRC) UniSZA</span> and a trusted <span class="text-purple-400 font-semibold">Residential College Floor Leader</span>, I possess the refined communication, adaptability, and teamwork skills required to thrive in fast-paced professional software development teams[cite: 1].
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education & Experience Timeline (Direct from Resume) -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                
+                <!-- Academic Journey -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-right">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 text-blue-400">
+                        <i class="fas fa-graduation-cap"></i> Academic Journey
+                    </h3>
+                    <div class="border-l-2 border-blue-500/30 pl-4 space-y-6">
+                        <div>
+                            <h4 class="font-bold text-white text-base">Universiti Sultan Zainal Abidin (UniSZA)</h4>
+                            <p class="text-xs text-slate-400">Current • Degree Student</p>
+                            <p class="text-sm text-slate-300 mt-2">B.Sc. in Computer Science (Software Development) with Honours[cite: 1].</p>
+                            <span class="inline-block mt-2 text-xs bg-blue-500/10 text-blue-400 px-2.5 py-1 rounded-md font-semibold">CGPA: 3.54 (3x Dean's List)[cite: 1]</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">Secondary Education</h4>
+                            <p class="text-xs text-slate-400">Pre-University Phase</p>
+                            <p class="text-sm text-slate-300 mt-1">Completed secondary schooling with a focus on disciplined milestones and rigorous academic preparation[cite: 1].</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Work History -->
+                <div class="glass rounded-3xl p-8" data-aos="fade-left">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 text-purple-400">
+                        <i class="fas fa-history"></i> Experience Highlights
+                    </h3>
+                    <div class="border-l-2 border-purple-500/30 pl-4 space-y-6">
+                        <div>
+                            <h4 class="font-bold text-white text-base">Bartender • BananaBro (Aeon Rawang)</h4>
+                            <p class="text-xs text-slate-400">July 2025 – Oct 2025[cite: 1]</p>
+                            <p class="text-sm text-slate-300 mt-1">Managed high-volume client orders efficiently under fast-paced, high-pressure environments, sharpening instant problem-solving skills[cite: 1].</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white text-base">Sales Assistant • Aeon Rawang</h4>
+                            <p class="text-xs text-slate-400">July 2024 – Oct 2024[cite: 1]</p>
+                            <p class="text-sm text-slate-300 mt-1">Handled stock optimization and high-standard inventory safety operations within the retail food sector[cite: 1].</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Technical Tools Matrix -->
+            <div class="glass rounded-[2.5rem] p-8 md:p-12 text-center" data-aos="fade-up">
+                <h3 class="text-xl font-bold mb-8 text-gradient">Development Workflow & Toolkit</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="p-4 bg-slate-900/40 rounded-2xl border border-white/5">
+                        <i class="fas fa-laptop-code text-2xl text-blue-400 mb-2"></i>
+                        <p class="text-xs font-bold text-slate-300">Android Studio[cite: 1]</p>
+                    </div>
+                    <div class="p-4 bg-slate-900/40 rounded-2xl border border-white/5">
+                        <i class="fas fa-fire text-2xl text-orange-400 mb-2"></i>
+                        <p class="text-xs font-bold text-slate-300">Firebase Suite[cite: 1]</p>
+                    </div>
+                    <div class="p-4 bg-slate-900/40 rounded-2xl border border-white/5">
+                        <i class="fas fa-diagram-project text-2xl text-emerald-400 mb-2"></i>
+                        <p class="text-xs font-bold text-slate-300">Draw.io / ERD[cite: 1]</p>
+                    </div>
+                    <div class="p-4 bg-slate-900/40 rounded-2xl border border-white/5">
+                        <i class="fas fa-palette text-2xl text-pink-400 mb-2"></i>
+                        <p class="text-xs font-bold text-slate-300">Canva / UI Design[cite: 1]</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="text-center p-6 border-t border-white/5 text-sm text-slate-500 glass">
+        <p>© 2026 Fahim Najme Ikhwan. Guided by Innovation.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        // Mobile Menu Activation
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
