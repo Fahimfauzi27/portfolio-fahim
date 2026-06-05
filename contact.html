@@ -127,8 +127,8 @@
 
                 <!-- Right Column: Interactive Message Form -->
                 <div class="md:col-span-3 glass rounded-[2rem] p-8" data-aos="fade-left">
-                    <!-- Ditukar untuk hantar ke Formspree backend -->
-                    <form id="contactForm" action="https://formspree.io/f/xoqgelyg" method="POST" class="space-y-6">
+                    <!-- ID Formspree kau (xdavaaao) telah diperbetulkan di bawah -->
+                    <form id="contactForm" action="https://formspree.io/f/xdavaaao" method="POST" class="space-y-6">
                         <div>
                             <label class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-2" for="name">Your Name</label>
                             <input class="w-full bg-slate-900/60 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-blue-500 transition" type="text" id="name" name="name" placeholder="John Doe" required>
@@ -147,7 +147,7 @@
                         </button>
                     </form>
                     
-                    <!-- Form Notification Handling (Ubahsuai untuk memaparkan status sebenar) -->
+                    <!-- Form Status Notification -->
                     <div id="formStatus" class="hidden mt-4 p-4 rounded-xl text-center text-xs font-bold uppercase tracking-wider"></div>
                 </div>
 
@@ -171,22 +171,19 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // AJAX Form Submission - Menghantar mesej tanpa refresh page
+        // AJAX Form Submission
         const form = document.getElementById('contactForm');
         const status = document.getElementById('formStatus');
         const submitBtn = document.getElementById('submitBtn');
 
         form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop page daripada refresh
+            e.preventDefault(); 
             
-            // Sediakan data borang
             const data = new FormData(form);
             
-            // Tukar rupa butang jadi loading state
             submitBtn.disabled = true;
             submitBtn.innerHTML = "<i class='fas fa-spinner animate-spin text-xs'></i> Sending...";
             
-            // Hantar data ke Formspree menggunakan Fetch API
             fetch(form.action, {
                 method: form.method,
                 body: data,
@@ -197,28 +194,18 @@
                 status.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'bg-emerald-500/10', 'text-emerald-400');
                 
                 if (response.ok) {
-                    // Jika mesej berjaya dihantar ke email kau
                     status.innerHTML = "✓ Message Dispatched Successfully & Received!";
                     status.classList.add('bg-emerald-500/10', 'text-emerald-400');
-                    form.reset(); // Kosongkan input form
+                    form.reset(); 
                 } else {
-                    // Jika ada isu dari server Formspree
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = "❌ " + data.errors.map(error => error.message).join(", ");
-                        } else {
-                            status.innerHTML = "❌ Oops! There was a problem submitting your form.";
-                        }
-                        status.classList.add('bg-red-500/10', 'text-red-400');
-                    })
+                    status.innerHTML = "❌ Submission Error! Check Formspree ID.";
+                    status.classList.add('bg-red-500/10', 'text-red-400');
                 }
             }).catch(error => {
-                // Jika masalah network internet terputus
-                status.classList.remove('hidden');
+                status.classList.remove('hidden', 'bg-emerald-500/10', 'text-emerald-400');
                 status.innerHTML = "❌ Network Error! Please check your connection.";
                 status.classList.add('bg-red-500/10', 'text-red-400');
             }).finally(() => {
-                // Set balik butang asal
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = "<i class='fas fa-paper-plane text-xs'></i> Dispatch Message";
             });
