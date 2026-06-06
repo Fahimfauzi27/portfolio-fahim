@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trackza DevLog | Fahim Najme</title>
+    <title>Trackza DevLog & Activity | Fahim Najme</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
         
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -19,7 +19,7 @@
         .glass {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .text-gradient {
@@ -33,7 +33,7 @@
             position: absolute;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(15, 23, 42, 0) 70%);
             filter: blur(40px);
             z-index: -1;
         }
@@ -44,28 +44,39 @@
 
         .card-hover:hover {
             transform: translateY(-5px);
-            border-color: rgba(59, 130, 246, 0.4);
+            border-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .filter-btn.active {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #3b82f6;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="hero-blob top-[10%] left-[-100px]"></div>
+    <div class="hero-blob top-[5%] left-[-100px]"></div>
     <div class="hero-blob bottom-[20%] right-[-100px]"></div>
 
-    <!-- Modern Navigation -->
+    <!-- Modern Navigation Bar -->
     <nav class="fixed w-full z-50 top-0 px-4 pt-4">
-        <div class="max-w-5xl mx-auto glass rounded-2xl px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-extrabold tracking-tighter">
-                <a href="index.html"><span class="text-white">Fahim Najme Ikhwan</span><span class="text-blue-500">.</span></a>
+        <div class="max-w-6xl mx-auto glass rounded-2xl px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-extrabold tracking-tighter">
+                <a href="index.html" class="hover:opacity-80 transition flex items-center gap-1">
+    <span class="text-blue-500 font-medium">[</span>
+    <span class="text-white">Fahim Najme Ikhwan</span>
+    <span class="text-blue-500 font-medium">]</span>
+  </a>
             </div>
             
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="index.html" class="hover:text-blue-400 transition">Home</a>
-                <a href="about.html" class="hover:text-blue-400 transition">About</a>
+                <a href="index.html" class="text-slate-300 hover:text-blue-400 transition">Home</a>
+                <a href="about.html" class="text-slate-300 hover:text-blue-400 transition">About</a>
                 <a href="blog.html" class="text-blue-400 transition">Blog</a>
-                <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
-                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-900/20 flex items-center gap-2">
+                <a href="contact.html" class="text-slate-300 hover:text-blue-400 transition">Contact</a>
+                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-900/20 flex items-center gap-2">
                     <i class="fab fa-linkedin"></i> Profile
                 </a>
             </div>
@@ -75,154 +86,587 @@
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden max-w-5xl mx-auto mt-2 glass rounded-2xl p-4 flex flex-col space-y-4 text-center text-sm font-medium md:hidden">
+        <div id="mobile-menu" class="hidden max-w-6xl mx-auto mt-2 glass rounded-2xl p-4 flex flex-col space-y-4 text-center text-sm font-medium md:hidden">
             <a href="index.html" class="hover:text-blue-400 py-2 border-b border-white/5">Home</a>
             <a href="about.html" class="hover:text-blue-400 py-2 border-b border-white/5">About</a>
             <a href="blog.html" class="text-blue-400 py-2 border-b border-white/5">Blog</a>
             <a href="contact.html" class="hover:text-blue-400 py-2">Contact</a>
-            <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl justify-center flex items-center gap-2">
+            <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl justify-center flex items-center gap-2">
                 <i class="fab fa-linkedin"></i> Profile
             </a>
         </div>
     </nav>
 
-    <!-- Blog Directory Section -->
+    <!-- Main Content Layout -->
     <main class="min-h-screen pt-32 pb-24 px-4">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-6xl mx-auto">
             
-            <div class="mb-16" data-aos="fade-right">
-                <h2 class="text-sm font-bold text-blue-500 uppercase tracking-[0.3em] mb-2">Trackza Engineering Log</h2>
-                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">The <span class="text-gradient">Trackza</span> Series</h1>
-                <p class="text-slate-400 max-w-xl">A specialized technical deep-dive into the architectural decisions, logic structures, and core data pipelines built for the UniSZA Bus Tracking System.</p>
+            <!-- Hero Header Title -->
+            <div class="mb-12" data-aos="fade-right">
+                <h2 class="text-xs font-bold text-blue-500 uppercase tracking-[0.3em] mb-2">Professional Timeline & DevLog</h2>
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Stories From <span class="text-gradient">LinkedIn</span></h1>
+                <p class="text-slate-400 max-w-xl">Himpunan dokumentasi kejuruteraan perisian, aktiviti kepimpinan Kor SISPA, pencapaian akademik, dan penglibatan komuniti di UniSZA.</p>
             </div>
 
-            <!-- Blog Grid -->
-            <div class="grid md:grid-cols-3 gap-6">
+            <!-- Professional LinkedIn Profile Header Block -->
+            <div class="glass rounded-2xl p-6 mb-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4" data-aos="fade-up">
+                <div>
+                    <p class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1">UniSZA FIK · Software Development</p>
+                    <h3 class="text-xl font-bold text-white mb-1">Fahim Najme Ikhwan Bin Mohd Fauzi</h3>
+                    <p class="text-sm text-slate-400">Bachelor of Science in Computer Science (Software Development) with Honours</p>
+                </div>
+                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto bg-[#0077b5] text-white px-5 py-3 rounded-xl hover:bg-[#006294] transition font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-blue-950/50">
+                    <i class="fab fa-linkedin text-base"></i> Connect on LinkedIn
+                </a>
+            </div>
+
+            <!-- Category Filtering System -->
+            <div class="flex flex-wrap gap-2 mb-8" data-aos="fade-up" data-aos-delay="50">
+                <button onclick="filterCategory('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider glass border border-white/10 text-slate-300 transition hover:bg-white/5">Show All</button>
+                <button onclick="filterCategory('tech')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider glass border border-white/10 text-slate-300 transition hover:bg-white/5">Academic & Tech</button>
+                <button onclick="filterCategory('uniform')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider glass border border-white/10 text-slate-300 transition hover:bg-white/5">Leadership & Uniform</button>
+                <button onclick="filterCategory('career')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider glass border border-white/10 text-slate-300 transition hover:bg-white/5">Career & Community</button>
+            </div>
+
+            <!-- 2-Column Responsive Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 
-                <!-- Article 1 -->
-                <article class="glass rounded-3xl p-6 flex flex-col card-hover" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-xs font-bold text-blue-400 mb-3 uppercase tracking-wider">Part 1: State & Streams</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Optimizing Async GPS Location Streams in Dart</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        How I solved stream latency problems and throttled driver coordinate uploads to optimize battery performance.
-                    </p>
-                    <div class="pt-4 border-t border-white/5 flex justify-between items-center text-xs text-slate-500">
-                        <span>Development Log</span>
-                        <button onclick="openModal('streams')" class="text-blue-400 font-semibold hover:underline bg-transparent border-none cursor-pointer">Read Logic →</button>
-                    </div>
-                </article>
+                <!-- Left Content: Dynamic Filter Feed Mapping -->
+                <div class="lg:col-span-2 space-y-6" id="feedContainer">
+                    
+                    <!-- 1. ANUGERAH DEKAN (Always Featured at Top) -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 md:p-8 flex flex-col md:flex-row gap-6 card-hover border-l-4 border-amber-500" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b1.jpg" alt="Anugerah Dekan" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-amber-500/20 backdrop-blur-md text-amber-400 text-[9px] font-bold px-2 py-0.5 rounded border border-amber-500/30 uppercase">Academic High</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                 <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Semester 3 & 4</span>
+                                <span class="text-xs font-bold text-amber-400 uppercase tracking-widest block mb-1">Semester 3 & 4</span>
+                                <h3 class="text-lg font-bold text-white mb-2">Majlis Penganugerahan Lencana Dekan UniSZA</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-4">Sangat bersyukur atas pengiktirafan Senat dan Fakulti Informatik & Komputer (FIK) atas penganugerahan Lencana Dekan bagi dua semester berturut-turut. Kejayaan ini membakar semangat untuk fasa pembinaan teknologi akan datang.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Academic Excellence</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_alhamdulillah-dekan-for-sem-3-4-activity-7430651383147802624-DLVH" target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
 
-                <!-- Article 2 -->
-                <article class="glass rounded-3xl p-6 flex flex-col card-hover" data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-xs font-bold text-emerald-400 mb-3 uppercase tracking-wider">Part 2: API Integration</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Dynamic Marker Rendering via Google Maps API</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Managing reactive map camera view states and mapping live database coordinates seamlessly into custom visual markers.
-                    </p>
-                    <div class="pt-4 border-t border-white/5 flex justify-between items-center text-xs text-slate-500">
-                        <span>Development Log</span>
-                        <button onclick="openModal('maps')" class="text-emerald-400 font-semibold hover:underline bg-transparent border-none cursor-pointer">Read Logic →</button>
-                    </div>
-                </article>
 
-                <!-- Article 3 -->
-                <article class="glass rounded-3xl p-6 flex flex-col card-hover" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-xs font-bold text-purple-400 mb-3 uppercase tracking-wider">Part 3: Backend Schema</div>
-                    <h3 class="text-xl font-bold mb-3 text-white">Designing Lightweight Live NoSQL Schemas</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">
-                        Structuring Cloud Firestore document collections to allow instant student reads while minimizing cloud network costs.
-                    </p>
-                    <div class="pt-4 border-t border-white/5 flex justify-between items-center text-xs text-slate-500">
-                        <span>Development Log</span>
-                        <button onclick="openModal('backend')" class="text-purple-400 font-semibold hover:underline bg-transparent border-none cursor-pointer">Read Logic →</button>
-                    </div>
-                </article>
+                    <!-- 2. DONE PROPOSAL DEFENSE FYP 1 -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b2.jpg" alt="Anugerah Dekan" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-amber-500/20 backdrop-blur-md text-amber-400 text-[9px] font-bold px-2 py-0.5 rounded border border-amber-500/30 uppercase">Academic High</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">November 2025</span>
+                                <h3 class="text-base font-bold text-white mb-2">Proposal Defense FYP 1</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Selesai mempertahankan cadangan awal projek pembangunan sistem pengurusan bas waktu-nyata Trackza di hadapan panel penilai akademik FIK UniSZA.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Project Initiation</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_done-for-proposal-defence-fyp1-date-11-activity-7430655179282268160-HDTT" target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
 
+                    <!-- 3. JPMPP ELECTIONS -->
+                    <article class="feed-item class-all class-uniform glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b3.jpg" alt="Anugerah Dekan" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-amber-500/20 backdrop-blur-md text-amber-400 text-[9px] font-bold px-2 py-0.5 rounded border border-amber-500/30 uppercase">Academic High</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">11 October</span>
+                                <h3 class="text-base font-bold text-white mb-2">Jawatankuasa Pemilihan Majlis Perwakilan Pelajar (JPMPP)</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Terlibat dalam struktur pengurusan tatatertib, logistik peti undi, dan penguatkuasaan protokol pilihan raya kampus Majlis Perwakilan Pelajar UniSZA.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Governance & Leadership</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_jawatankuasa-pemilihan-majlis-perwakilan-activity-7430660709811703808-pZS5" target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                   <!-- 4. FINAL PROJECT SEM 1 SISPA -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b4.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">May 2024</span>
+                                <h3 class="text-base font-bold text-white mb-2">Final Project Sem 1: Kor SISPA Cobra 05</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Penilaian kemasukan awal lapangan bagi menguji kefahaman ikatan tali, simpulan menyelamat, dan anatomi bantu mula kecemasan</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Basic Civil Defense</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_final-project-sem-1-kor-sispa-unisza-kampus-activity-7430673494717190144-dNyq" target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                   <!-- 5. KURSUS PERTAMA & SLIP BADAN LTM (PA) -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b5.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                 <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">23 March 2024</span>
+                                <h3 class="text-base font-bold text-white mb-2">Kursus Pertama & Penerimaan Slip No Badan LTM (PA)</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Langkah permulaan pendaftaran dan orientasi asas taktikal menyelamat sebelum ditauliahkan sebagai Lencana Timbalan Muda.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Official Onboarding</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_kursus-pertama-dan-slip-no-badan-before-ditauliahkan-activity-7430674114543001601-AA3Z" target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- 6. PROGRAM IHYA RAMADAN KOR -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b6.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">29 March 2024</span>
+                                <h3 class="text-base font-bold text-white mb-2">Program Ihya Ramadan Kor SISPA UniSZA</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Penglibatan kolaboratif pengurusan kerohanian dan integrasi ukhuwah antara skuad Kampus Gong Badak & Kampus Besut.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Inter-Campus Community</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_program-ihya-ramadan-kor-siswa-siswi-pertahanan-activity-7430674663992729601-n5SW"target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                     <!-- 7.  TOWNHALL BERUNIFORM -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b7.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">4 May 2024</span>
+                                <h3 class="text-base font-bold text-white mb-2">Townhall Sambutan Hari Raya Pelajar Beruniform</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Majlis interaksi, integrasi silaturahim, dan perbincangan hala tuju pengurusan kelab badan beruniform UniSZA Kampus Besut.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Regimental Networking</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_townhall-sambutan-hari-raya-pelajar-beruniform-activity-7430678767574077440-LYbm"target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                     <!-- 8. SEM 2 FINAL PROJECT KOR SISPA-->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b8.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">18 May 2024</span>
+                                <h3 class="text-base font-bold text-white mb-2">Final Project Sem 2: Kor SISPA (Asrama Perkaya Besut)</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Pelaksanaan khidmat masyarakat dan modul latihan fizikal ketahanan bersama komuniti penempatan Perkaya Jerteh.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Social Volunteering</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_final-project-sem-2-kor-sispa-unisza-kampus-activity-7430681971674132480-vHvw"target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                   <!-- .9 PERBARISAN BULANAN KOR -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b9.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                 <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">5 June 2024</span>
+                                <h3 class="text-base font-bold text-white mb-2">Perbarisan Bulanan Kor Berpakej & Tidak Berpakej</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Aktiviti pemantapan disiplin ketat, kawad kaki formasi, dan pemeriksaan uniform rasmi di Kompleks Pentadbiran Kampus Besut.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Regimental Discipline</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_final-project-sem-2-kor-sispa-unisza-kampus-activity-7430681971674132480-vHvw"target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 10. KURSUS KEDUA PUSAT PEMINDAHAN -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b10.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                 <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">7 - 9 June 2024</span>
+                                <h3 class="text-base font-bold text-white mb-2">Kursus Kedua: Pengurusan Pusat Pemindahan (LH Audi F8)</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Latihan berpusat protokol pendaftaran, logistik agihan, kebajikan, dan pengurusan pusat pemindahan banjir/bencana.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Disaster Relief Logistics</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_kursus-kedua-kursus-pengurusan-pusat-pemindahan-activity-7430687049911009280-alN2"target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                  <!-- 11. SEM 3 FINAL PROJECT -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b11.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                  <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">4 January 2025</span>
+                                <h3 class="text-base font-bold text-white mb-2">Final Project Sem 3: Kor SISPA Cobra 05</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Ujian pemetaan kemahiran menyelamat bersepadu dan simulasi kecemasan berkumpulan mahasiswa UniSZA Besut.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Operational Assessment</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_final-project-sem-3-kor-sispa-unisza-kampus-activity-7430690861866463232-nbd0"target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 12. KURSUS KETIGA FRLS -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b12.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">21 - 23 February 2025</span>
+                                <h3 class="text-base font-bold text-white mb-2">Kursus Ketiga: First Responder Life Support (FRLS)</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Kemahiran tinggi sokongan hayat, CPR, rawatan trauma primer, dan penstabilan mangsa pra-hospital.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Life Support Credentials</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_kursus-ketiga-first-responder-life-support-activity-7430692815334100992-h4F9"target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                   <!-- 13. SEM 4 FINAL PROJECT -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b13.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">31 May 2025</span>
+                                <h3 class="text-base font-bold text-white mb-2">Final Project Sem 4: Kor SISPA (SMK Permaisuri Nur Zahirah)</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Projek komuniti dan khidmat Pertahanan Awam bersama komuniti sekolah menengah luar bagi pemindahan kemahiran asas pertolongan cemas.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Community Outreach</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_final-project-sem-4-kor-sispa-unisza-kampus-activity-7430696760634777600-ffIn"target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 14. KURSUS KEEMPAT METHODOLOGY -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b14.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">21 - 23 November 2025</span>
+                                <h3 class="text-base font-bold text-white mb-2">Kursus Keempat: Methodology Pertahanan Awam</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Latihan metodologi taktik menyelamat, pengurusan risiko, dan rantaian arahan bertindak semasa krisis kecemasan.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Tactical Training</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_final-project-sem-4-kor-sispa-unisza-kampus-activity-7430696760634777600-ffIn"target="_blank"class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+
+
+                     <!-- 15. SEM 5 FINAL PROJECT -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b15.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">6 December 2025</span>
+                                <h3 class="text-base font-bold text-white mb-2">Final Project Sem 5: Kor SISPA Cobra 05</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Siri kemuncak operasi lapangan berpasukan bagi Semester Akhir modul latihan watan Pertahanan Awam UniSZA Kampus Besut.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Civil Defense Ops</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_final-project-sem-5-last-sem-kor-sispa-activity-7430753043861876736-RL0M" target="_blank"class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 16. DATA CENTER VISIT -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b16.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">14 December 2025</span>
+                                <h3 class="text-base font-bold text-white mb-2">Technical Visit: UniSZA Gong Badak Data Center</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Observation of distributed network infrastructures, server mainframes, cloud host environments, and disaster recovery architectures managed by UniSZA center.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Systems Infrastructure</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_lawatan-ke-data-center-unisza-gong-badak-activity-7430754615203155968-m9EX" target="_blank"class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                      <!-- 17. SULAM COMMUNITY PROJECT (ZURITA WORLD ENTERPRISE) -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b17.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">Oct - Dec 2025 (Week 1 - 11)</span>
+                                <h3 class="text-base font-bold text-white mb-2">SULAM Project: Zurita World Enterprise</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Community engagement project under Social and Professional Ethics course. Built digital transformation and strategic exposure solutions for local SME Kak Ita Aiskrim Nyor Pulut Homemade in Besut district.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Ethics & Digital Business</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_sulam-community-project-for-small-and-medium-activity-7430763358787710976-L_b_" target="_blank"class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 18. CONTINUE PRESENTATION FYP 1 -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b18.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">8 January 2026</span>
+                                <h3 class="text-base font-bold text-white mb-2">Continue Presentation FYP 1</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Fasa pembentangan lanjutan penilaian reka bentuk sistem dan kertas cadangan seni bina perisian bagi aplikasi pengesan bas pintar UniSZA.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Research & Architecture</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_continue-presentation-fyp-1-date-812026-activity-7430791980605157376-77h7" target="_blank"class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 19. HSK MANDARIN CLASS & EXAM -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b19.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">2025</span>
+                                <h3 class="text-base font-bold text-white mb-2">HSK Mandarin Training & Level 1 Certification</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Obtained global certification credentials for HSK Mandarin competency level 1 class modules, diversifying communication proficiencies for multi-national corporate dynamics.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Global Languages</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_certificate-of-participation-hsk-class-and-activity-7430795090949812224-IUEa" target="_blank"class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                       <!-- 20. KURSUS KELIMA BAKAL PEGAWAI -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b20.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">13 - 15 February 2026</span>
+                                <h3 class="text-base font-bold text-white mb-2">Kursus Kelima: Kursus Bakal Pegawai LTM (PA)</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Latihan intensif kepemimpinan pegawai kanan pasukan, pengurusan organisasi pertahanan awam tinggi sebelum pentauliahan rasmi kor.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Officer Commissioning Prep</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_kursus-kelima-kursus-bakal-pegawai-sebelum-activity-7430796112074194946-yxRB" target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                     <!-- 21. PRIVATE CAREER ADVISORY W/ PN ATSIRAH -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b21.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">April 2026</span>
+                                <h3 class="text-base font-bold text-white mb-2">Private Career Briefing with Puan Nurul Atsirah</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Engaged in an insightful corporate mentoring session regarding resume alignments and communication methods required by corporate sectors before stepping into industrial internships.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Internship Readiness</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_alhamdulillah-i-am-deeply-grateful-and-truly-activity-7444957991067426816-6z4Q" target="_blank"  class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                   <!-- 22. PROGRESS PRESENTATION FYP I: TRACKZA -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b22.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">April 2026</span>
+                                <h3 class="text-base font-bold text-white mb-2">Progress Presentation FYP I : TrackZa</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Successfully completed the progress presentation for TrackZa. Demonstrated core mechanics including real-time data synchronization and Google GPS maps engine integration inside Flutter.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Mobile Apps #Flutter #GPSIntegration</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_softwaredevelopment-flutter-mobileapp-activity-7447710217464733696-4OMX" target="_blank"   class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                   <!-- 23. CAREER GROUP MENTORSHIP W/ PN ATSIRAH -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b23.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">May 2026</span>
+                                <h3 class="text-base font-bold text-white mb-2">Sesi Pembelajaran & Rangkaian Komuniti Kerjaya</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Sesi bimbingan berkumpulan yang berkembang daripada perbincangan satu-ke-satu bersama Puan Atsirah. Mengumpulkan rakan-rakan mahasiswa untuk pendedahan resume HR, persediaan industri, dan penjenamaan peribadi.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Mobile Apps #Flutter #GPSIntegration</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_professionalgrowth-careerdevelopment-learningjourney-activity-7454887080293236736-7PDF" target="_blank"class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                      <!-- 24. TERENGGANU MARATHON 2026 LOGISTICS -->
+                    <article class="feed-item class-all class-tech glass rounded-3xl p-6 flex flex-col md:flex-row gap-6 card-hover" data-aos="fade-up">
+                        <div class="w-full md:w-2/5 shrink-0 h-44 rounded-2xl overflow-hidden bg-slate-900/50 border border-white/5 relative">
+                            <img src="assets/b24.jpg" alt="FYP 2 Trackza" class="w-full h-full object-cover opacity-70">
+                            <div class="absolute top-3 left-3 bg-blue-500/20 backdrop-blur-md text-blue-400 text-[9px] font-bold px-2 py-0.5 rounded border border-blue-500/30 uppercase">Live Systems</div>
+                        </div>
+                        <div class="flex flex-col justify-between flex-grow">
+                            <div>
+                                <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-1">27 April - 2 May 2026</span>
+                                <h3 class="text-base font-bold text-white mb-2">Logistics Committee Member · Terengganu Marathon (TM26)</h3>
+                                <p class="text-slate-400 text-xs leading-relaxed mb-3">Managed equipment distribution, resources deployment, and field operational synchronization for a mega sporting event serving 33,500 runners from 1KM to 42KM Full Marathon segments.</p>
+                            </div>
+                            <div class="flex justify-between items-center pt-3 border-t border-white/5">
+                                <span class="text-[11px] text-slate-500">Operations & Scaled Logistics</span>
+                                <a href="https://www.linkedin.com/posts/fahimnajmeikhwan_terengganumarathon26-tm26-logistics-activity-7457307387553796096-FCCt" target="_blank" class="text-blue-400 font-bold text-xs flex items-center gap-1">LinkedIn <i class="fa-brands fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Right Content: Sidebar Widgets Panel -->
+                <aside class="space-y-6">
+                    
+                    <!-- Widget 1: Personal Profile Card -->
+                    <div class="glass rounded-3xl p-6 text-center" data-aos="fade-up">
+                        <div class="relative w-20 h-20 mx-auto mb-4">
+                            <img src="assets/picfahim.jpg" alt="Fahim Najme" class="w-full h-full rounded-2xl object-cover border-2 border-blue-500/30 shadow-md">
+                            <span class="absolute bottom-1 right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-[#0f172a] rounded-full"></span>
+                        </div>
+                        <h4 class="text-base font-bold text-white">Fahim Najme Ikhwan</h4>
+                        <p class="text-xs text-slate-400 mt-1 mb-4">Software & Mobile App Engineer<br>UniSZA FIK · Besut Campus</p>
+                        
+                        <div class="grid grid-cols-2 gap-2 border-t border-white/5 pt-4 text-xs">
+                            <div class="bg-white/5 p-2 rounded-xl">
+                                <span class="block text-slate-500 font-medium mb-0.5">Focus</span>
+                                <span class="text-blue-400 font-bold">Mobile Apps</span>
+                            </div>
+                            <div class="bg-white/5 p-2 rounded-xl">
+                                <span class="block text-slate-500 font-medium mb-0.5">Engine</span>
+                                <span class="text-blue-400 font-bold">Flutter & Dart</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Widget 2: Uniform & Leadership Stats (Premium Value Addition) -->
+                    <div class="glass rounded-3xl p-6" data-aos="fade-up">
+                        <h4 class="text-sm font-bold text-white mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-blue-400"></i> Soft Skills & Leadership
+                        </h4>
+                        <div class="space-y-3 text-xs">
+                            <div class="flex justify-between items-center bg-white/5 p-2.5 rounded-xl">
+                                <span class="text-slate-400">Kor SISPA Watan</span>
+                                <span class="text-red-400 font-bold">LTM (PA) Skuad 05</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/5 p-2.5 rounded-xl">
+                                <span class="text-slate-400">Event Operations</span>
+                                <span class="text-purple-400 font-bold">33,500+ runners (TM26)</span>
+                            </div>
+                            <div class="flex justify-between items-center bg-white/5 p-2.5 rounded-xl">
+                                <span class="text-slate-400">SME Community Project</span>
+                                <span class="text-emerald-400 font-bold">SULAM Certified</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Widget 3: Internship Availability Card -->
+                    <div class="glass rounded-3xl p-6 relative overflow-hidden" data-aos="fade-up">
+                        <div class="absolute -right-8 -bottom-8 w-24 h-24 bg-blue-600/10 rounded-full blur-xl"></div>
+                        <div class="flex items-center space-x-3 mb-3 text-blue-400">
+                            <div class="w-8 h-8 rounded-xl bg-blue-500/10 flex items-center justify-center">
+                                <i class="fa-solid fa-briefcase text-sm"></i>
+                            </div>
+                            <h4 class="text-sm font-bold text-white">Available for Internship</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                            Actively searching for industrial training roles for mid-2026. Specialized in real-time ecosystem setups and GPS integrations.
+                        </p>
+                        <a href="contact.html" class="block w-full text-center bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-xs py-2.5 rounded-xl transition">
+                            Initiate Contact
+                        </a>
+                    </div>
+
+                </aside>
             </div>
+
         </div>
     </main>
 
-    <!-- INTERACTIVE MODAL CONTAINER -->
-    <div id="articleModal" class="fixed inset-0 z-50 overflow-y-auto hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="glass max-w-2xl w-full rounded-[2.5rem] p-8 md:p-10 relative max-h-[85vh] overflow-y-auto border border-white/10 shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white transition text-lg">
-                <i class="fas fa-times"></i>
-            </button>
-            <div id="modalContent" class="prose prose-invert max-w-none"></div>
-        </div>
-    </div>
-
-    <!-- Hidden HTML Templates (Cleaned & Free From System Tags) -->
-    <div class="hidden">
-        <div id="content-streams">
-            <span class="text-xs font-bold text-blue-400 uppercase tracking-widest block mb-2">Trackza Core • Part 1</span>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Handling Async Location Streams in Dart</h2>
-            <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                During the initial development blueprint of <strong>Trackza</strong>, the primary technical friction was streaming frequency. Constant raw coordinate updates flooded the backend network layer, leading to high cellular battery drain on the driver's device.
-            </p>
-            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">The Solution Logic:</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                I applied a specialized distance filter layer inside the Dart ecosystem using the geolocator package setting. Instead of streaming coordinates continuously over arbitrary seconds, the tracking hardware only executes a network write if the campus transit vehicle moves structural coordinates by more than 10 meters.
-            </p>
-            <div class="bg-slate-900/90 rounded-xl p-4 font-mono text-xs text-blue-300 border border-white/5 mb-4 overflow-x-auto whitespace-pre">Geolocator.getPositionStream(
-  locationSettings: LocationSettings(
-    accuracy: LocationAccuracy.high,
-    distanceFilter: 10
-  )
-).listen((Position position) {
-  updateBusLocationInFirestore(position);
-});</div>
-            <p class="text-slate-400 text-xs italic">Result: Safely preserves host battery allocations while delivering hyper-accurate map locations.</p>
-        </div>
-
-        <div id="content-maps">
-            <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block mb-2">Trackza Core • Part 2</span>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Reactive Google Maps API Target Mapping</h2>
-            <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                When the transport driver changes coordinates, the active student application interface must catch the map change immediately and update the localized vehicle position marker without disrupting the user's active UI view state.
-            </p>
-            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">The Google Maps Controller Logic:</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                Instead of re-instantiating the map state (which causes unpleasant screen flickering), I utilized the native GoogleMapController class to dynamically animate target coordinates smoothly over the viewport matrix.
-            </p>
-            <div class="bg-slate-900/90 rounded-xl p-4 font-mono text-xs text-emerald-300 border border-white/5 mb-4 overflow-x-auto whitespace-pre">mapController.animateCamera(
-  CameraUpdate.newCameraPosition(
-    CameraPosition(
-      target: LatLng(liveLatitude, liveLongitude),
-      zoom: 16.5
-    )
-  )
-);</div>
-            <p class="text-slate-400 text-sm leading-relaxed">
-                Markers are stored as plain reactive states in Dart, letting the Flutter framework rebuild map elements asynchronously without freezing the app thread.
-            </p>
-        </div>
-
-        <div id="content-backend">
-            <span class="text-xs font-bold text-purple-400 uppercase tracking-widest block mb-2">Trackza Core • Part 3</span>
-            <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Lightweight Live NoSQL Schemas</h2>
-            <p class="text-slate-300 text-sm leading-relaxed mb-4">
-                In a campus ecosystem with hundreds of active student devices checking routes, an un-optimized Firestore structure can instantly spike cloud database usage costs.
-            </p>
-            <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-2">The Firestore Hierarchy Optimization:</h3>
-            <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                Instead of logging an immutable list of tracking records for historical logs, I isolated active locations into a high-speed singular document schema. Student apps listen directly to this atomic document snapshot.
-            </p>
-            <div class="bg-slate-900/90 rounded-xl p-4 font-mono text-xs text-purple-300 border border-white/5 mb-2 overflow-x-auto whitespace-pre">/unisza_bus_fleet (Collection)
-   /route_alpha (Document)
-      - bus_id: "UniSZA-B01"
-      - is_active: true
-      - current_coords: GeoPoint(5.397, 103.041)
-      - last_updated: Timestamp</div>
-            <p class="text-slate-400 text-sm leading-relaxed mt-2">
-                This keeps network fetch operations linear at O(1) lookup complexity, optimizing read efficiency across the entire student fleet.
-            </p>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="text-center p-6 border-t border-white/5 text-sm text-slate-500 glass">
-        <p>© 2026 Fahim Najme Ikhwan. Built with Flutter, Dart & Pride.</p>
+    <!-- Footer Section -->
+    <footer class="text-center p-6 border-t border-white/5 text-xs text-slate-500 glass">
+        <p>© 2026 | FNI </p>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -238,32 +682,22 @@
             });
         }
 
-        // Bulletproof Modal Function
-        function openModal(key) {
-            const modal = document.getElementById('articleModal');
-            const container = document.getElementById('modalContent');
-            const sourceHTML = document.getElementById('content-' + key);
-            
-            if(modal && container && sourceHTML) {
-                container.innerHTML = sourceHTML.innerHTML;
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; 
-            }
-        }
+        // Fast In-Memory Client-side Filtering Engine
+        function filterCategory(category) {
+            // Update active state class for layout buttons
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
 
-        function closeModal() {
-            const modal = document.getElementById('articleModal');
-            if(modal) {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto'; 
-            }
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('articleModal');
-            if (event.target === modal) {
-                closeModal();
-            }
+            // Hide/Show items using responsive grid matching
+            const items = document.querySelectorAll('.feed-item');
+            items.forEach(item => {
+                if (item.classList.contains('class-' + category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
         }
     </script>
 </body>

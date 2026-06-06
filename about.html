@@ -12,18 +12,33 @@
         
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #0f172a;
+            background-color: #0b1329;
             color: #f8fafc;
+            overflow-x: hidden;
         }
 
         .glass {
-            background: rgba(30, 41, 59, 0.7);
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.75) 100%);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 20px 40px -15px rgba(37, 99, 235, 0.2);
         }
 
         .text-gradient {
-            background: linear-gradient(135deg, #60a5fa 0%, #2563eb 100%);
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -31,44 +46,66 @@
 
         .hero-blob {
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(147, 51, 234, 0.1) 0%, rgba(15, 23, 42, 0) 70%);
-            filter: blur(40px);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(15, 23, 42, 0) 70%);
+            filter: blur(50px);
             z-index: -1;
+            animation: pulse 8s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translate(0px, 0px); }
+            100% { transform: scale(1.08) translate(20px, -15px); }
+        }
+
+        /* Custom Scrollbar untuk Box Experience & Education */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(59, 130, 246, 0.6);
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <div class="hero-blob top-[20%] right-[-100px]"></div>
-    <div class="hero-blob bottom-[10%] left-[-100px]"></div>
+    <div class="hero-blob top-[5%] right-[-150px]"></div>
+    <div class="hero-blob bottom-[20%] left-[-150px]"></div>
 
-    <!-- Modern Navigation -->
     <nav class="fixed w-full z-50 top-0 px-4 pt-4">
         <div class="max-w-5xl mx-auto glass rounded-2xl px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-extrabold tracking-tighter">
-                <a href="index.html"><span class="text-white">Fahim Najme Ikhwan</span><span class="text-blue-500">.</span></a>
-            </div>
+            <div class="text-xl font-bold tracking-wider font-display">
+        <a href="index.html" class="hover:opacity-80 transition flex items-center gap-1">
+    <span class="text-blue-500 font-medium">[</span>
+    <span class="text-white">Fahim Najme Ikhwan</span>
+    <span class="text-blue-500 font-medium">]</span>
+  </a>
+      </div>
             
-            <!-- Desktop Links -->
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="index.html" class="hover:text-blue-400 transition">Home</a>
                 <a href="about.html" class="text-blue-400 transition">About</a>
                 <a href="blog.html" class="hover:text-blue-400 transition">Blog</a>
                 <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
-                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-900/20 flex items-center gap-2">
+                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-900/30 flex items-center gap-2">
                     <i class="fab fa-linkedin"></i> Profile
                 </a>
             </div>
 
-            <!-- Mobile Hamburger Button -->
             <button id="menu-btn" class="md:hidden text-white focus:outline-none" aria-label="Toggle Menu">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
 
-        <!-- Mobile Dropdown Menu -->
         <div id="mobile-menu" class="hidden max-w-5xl mx-auto mt-2 glass rounded-2xl p-4 flex flex-col space-y-4 text-center text-sm font-medium md:hidden">
             <a href="index.html" class="hover:text-blue-400 py-2 border-b border-white/5">Home</a>
             <a href="about.html" class="text-blue-400 py-2 border-b border-white/5">About</a>
@@ -80,121 +117,237 @@
         </div>
     </nav>
 
-    <!-- Main About Content -->
-    <main class="min-h-screen pt-32 pb-24 px-4">
-        <div class="max-w-4xl mx-auto">
-            
-            <!-- Introduction Header -->
-            <div class="text-center mb-16" data-aos="fade-down">
-                <h1 class="text-4xl md:text-5xl font-extrabold mb-4">About <span class="text-gradient">Myself</span></h1>
-                <p class="text-slate-400 max-w-xl mx-auto">Discover my academic journey, background experience, and the leadership milestones that define my professional identity.</p>
-            </div>
-
-            <!-- Professional Resume Summary Card -->
-            <div class="glass rounded-[2.5rem] p-8 md:p-12 mb-12" data-aos="fade-up">
-                <div class="grid md:grid-cols-3 gap-8 items-start">
-                    <div class="md:col-span-1 flex justify-center">
-                        <div class="w-40 h-40 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
-                            <i class="fas fa-user-tie text-6xl text-white/90"></i>
-                        </div>
-                    </div>
-                    <div class="md:col-span-2">
-                        <h2 class="text-2xl font-bold mb-4 text-white">Professional Summary</h2>
-                        <p class="text-slate-300 leading-relaxed mb-4">
-                            I am an analytical and driven <span class="text-blue-400 font-semibold">Bachelor of Science in Computer Science (Software Development) with Honours</span> student at Universiti Sultan Zainal Abidin (UniSZA). Maintaining a strong academic track record with a <span class="text-blue-400 font-semibold">3.54 CGPA and 3x Dean's List recognitions</span>, I actively bridge the gap between complex computing theory and clean, production-ready software solutions[cite: 1].
-                        </p>
-                        <p class="text-slate-300 leading-relaxed mb-4">
-                            My development expertise is heavily rooted in mobile and web ecosystems, demonstrated through the architecture of <span class="text-emerald-400 font-semibold">Trackza</span>—a real-time GPS campus bus tracking mobile application utilizing Flutter and Firebase integration[cite: 1]. I am highly passionate about deploying clean code, managing real-time data pipelines, and creating intuitive user experiences[cite: 1].
-                        </p>
-                        <p class="text-slate-300 leading-relaxed">
-                            Beyond technical coding, I lean strongly into leadership and operational execution[cite: 1]. Serving as an active <span class="text-purple-400 font-semibold">Exco JPMPP for the Student Representative Council (SRC) UniSZA</span> and a trusted <span class="text-purple-400 font-semibold">Residential College Floor Leader</span>, I possess the refined communication, adaptability, and teamwork skills required to thrive in fast-paced professional software development teams[cite: 1].
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Education & Experience Timeline (Direct from Resume) -->
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                
-                <!-- Academic Journey -->
-                <div class="glass rounded-3xl p-8" data-aos="fade-right">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 text-blue-400">
-                        <i class="fas fa-graduation-cap"></i> Academic Journey
-                    </h3>
-                    <div class="border-l-2 border-blue-500/30 pl-4 space-y-6">
-                        <div>
-                            <h4 class="font-bold text-white text-base">Universiti Sultan Zainal Abidin (UniSZA)</h4>
-                            <p class="text-xs text-slate-400">Current • Degree Student</p>
-                            <p class="text-sm text-slate-300 mt-2">B.Sc. in Computer Science (Software Development) with Honours[cite: 1].</p>
-                            <span class="inline-block mt-2 text-xs bg-blue-500/10 text-blue-400 px-2.5 py-1 rounded-md font-semibold">CGPA: 3.54 (3x Dean's List)[cite: 1]</span>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-base">Secondary Education</h4>
-                            <p class="text-xs text-slate-400">Pre-University Phase</p>
-                            <p class="text-sm text-slate-300 mt-1">Completed secondary schooling with a focus on disciplined milestones and rigorous academic preparation[cite: 1].</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Core Work History -->
-                <div class="glass rounded-3xl p-8" data-aos="fade-left">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3 text-purple-400">
-                        <i class="fas fa-history"></i> Experience Highlights
-                    </h3>
-                    <div class="border-l-2 border-purple-500/30 pl-4 space-y-6">
-                        <div>
-                            <h4 class="font-bold text-white text-base">Bartender • BananaBro (Aeon Rawang)</h4>
-                            <p class="text-xs text-slate-400">July 2025 – Oct 2025[cite: 1]</p>
-                            <p class="text-sm text-slate-300 mt-1">Managed high-volume client orders efficiently under fast-paced, high-pressure environments, sharpening instant problem-solving skills[cite: 1].</p>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-white text-base">Sales Assistant • Aeon Rawang</h4>
-                            <p class="text-xs text-slate-400">July 2024 – Oct 2024[cite: 1]</p>
-                            <p class="text-sm text-slate-300 mt-1">Handled stock optimization and high-standard inventory safety operations within the retail food sector[cite: 1].</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Technical Tools Matrix -->
-            <div class="glass rounded-[2.5rem] p-8 md:p-12 text-center" data-aos="fade-up">
-                <h3 class="text-xl font-bold mb-8 text-gradient">Development Workflow & Toolkit</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <div class="p-4 bg-slate-900/40 rounded-2xl border border-white/5">
-                        <i class="fas fa-laptop-code text-2xl text-blue-400 mb-2"></i>
-                        <p class="text-xs font-bold text-slate-300">Android Studio[cite: 1]</p>
-                    </div>
-                    <div class="p-4 bg-slate-900/40 rounded-2xl border border-white/5">
-                        <i class="fas fa-fire text-2xl text-orange-400 mb-2"></i>
-                        <p class="text-xs font-bold text-slate-300">Firebase Suite[cite: 1]</p>
-                    </div>
-                    <div class="p-4 bg-slate-900/40 rounded-2xl border border-white/5">
-                        <i class="fas fa-diagram-project text-2xl text-emerald-400 mb-2"></i>
-                        <p class="text-xs font-bold text-slate-300">Draw.io / ERD[cite: 1]</p>
-                    </div>
-                    <div class="p-4 bg-slate-900/40 rounded-2xl border border-white/5">
-                        <i class="fas fa-palette text-2xl text-pink-400 mb-2"></i>
-                        <p class="text-xs font-bold text-slate-300">Canva / UI Design[cite: 1]</p>
-                    </div>
-                </div>
-            </div>
-
+    <main class="min-h-screen pt-32 pb-24 px-4 max-w-5xl mx-auto">
+        
+        <div class="text-center mb-16" data-aos="fade-down">
+            <span class="text-xs font-bold uppercase tracking-widest text-blue-400 bg-blue-500/10 px-3 py-1.5 rounded-full">Engineering &amp; Creative Portfolio</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold mt-3 mb-4">About <span class="text-gradient">Myself</span></h1>
+            <p class="text-slate-400 max-w-xl mx-auto text-sm md:text-base">Architecting the future of mobility and smart applications through clean, structural code.</p>
         </div>
+
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 items-stretch">
+            
+            <div class="lg:col-span-4 flex flex-col gap-6" data-aos="fade-right">
+                <div class="glass-card rounded-3xl p-6 text-center relative overflow-hidden flex flex-col justify-between h-full">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-600/10 rounded-bl-full pointer-events-none"></div>
+                    
+                    <div>
+                        <div class="relative w-36 h-36 mx-auto mb-5 group">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-purple-600 rounded-2xl rotate-6 scale-105 opacity-50 blur-sm group-hover:rotate-12 transition duration-300"></div>
+                            <div class="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 bg-slate-900">
+                                <img src="assets/picfahim.jpg" alt="Fahim Najme" class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-110">
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-bold tracking-tight text-white">Fahim Najme Ikhwan</h3>
+                        <p class="text-xs font-medium text-blue-400 mt-1">Software &amp; Mobile App Developer</p>
+                        
+                        <div class="mt-6 pt-5 border-t border-white/5 flex flex-col gap-3 text-left text-xs text-slate-300">
+                            <div class="flex items-center gap-3">
+                                <div class="w-7 h-7 rounded-lg bg-slate-900/60 border border-white/5 flex items-center justify-center text-blue-400">
+                                    <i class="fa-solid fa-university"></i>
+                                </div>
+                                <span>UniSZA Besut Campus</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-7 h-7 rounded-lg bg-slate-900/60 border border-white/5 flex items-center justify-center text-blue-400">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <span>Terengganu, Malaysia</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-emerald-500/10 border border-emerald-500/20 rounded-xl p-3 text-emerald-400 text-xs font-bold flex items-center justify-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span>Available for Internship (Mid-2026)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8 glass-card rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full" data-aos="fade-left">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-white">
+                        <i class="fa-solid fa-user-astronaut text-blue-500"></i> Professional Summary
+                    </h3>
+                    <div class="space-y-4 text-slate-300 text-sm md:text-base leading-relaxed">
+                        <p>
+                            I am an analytical and driven <span class="text-blue-400 font-semibold">Bachelor of Science in Computer Science (Software Development) with Honours</span> student at <span class="text-white font-medium">Universiti Sultan Zainal Abidin (UniSZA)</span>. My academic path and technical passion are deeply rooted in real-time engineering and modular mobile architecture.
+                        </p>
+                        <p>
+                            I specialize in building efficient frontend client interfaces and pairing them with scalable backends. My specific developmental core focus centers around <span class="text-blue-400 font-semibold">real-time tracking logic and native GPS systems integration</span>, which I systematically implement to bridge the gap between academic research and production-grade deployments.
+                        </p>
+                        <p>
+                            Beyond technical engineering, I excel in structured cross-functional collaboration. Having worked within dedicated corporate content structures, I leverage specialized digital workflows to manage media platforms, streamline interface design operations, and support localized enterprise scaling objectives.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-white/5">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Development Toolkit</h4>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1.5 rounded-lg font-medium">Flutter</span>
+                        <span class="bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1.5 rounded-lg font-medium">Dart</span>
+                        <span class="bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1.5 rounded-lg font-medium">Firebase Suite</span>
+                        <span class="bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1.5 rounded-lg font-medium">Android Studio</span>
+                        <span class="bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1.5 rounded-lg font-medium">Java</span>
+                        <span class="bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1.5 rounded-lg font-medium">Python</span>
+                        <span class="bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1.5 rounded-lg font-medium">phpMyAdmin</span>
+                        <span class="bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1.5 rounded-lg font-medium">Canva Pro</span>
+                        <span class="bg-blue-950/40 text-blue-400 border border-blue-900/50 px-3 py-1.5 rounded-lg font-medium">Draw.io Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-20">
+            <div class="flex justify-between items-end mb-8" data-aos="fade-up">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-blue-400">Engineering Milestones</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold mt-1">Key Projects</h2>
+                </div>
+                <a href="projects.html" class="text-sm font-semibold text-blue-400 hover:text-blue-300 transition flex items-center gap-1 group">
+                    View All <i class="fa-solid fa-arrow-right text-xs transform group-hover:translate-x-1 transition"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <article class="glass-card rounded-2xl p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="w-10 h-10 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 mb-4">
+                            <i class="fa-solid fa-bus-simple text-lg"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-1 text-white">Trackza Bus Tracker</h4>
+                        <p class="text-[11px] text-blue-400 font-medium mb-3">Real-Time Fleet Management</p>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            A real-time GPS transit tracking and fleet management ecosystem engineered for UniSZA transport infrastructure. Developed natively for mobile clients using Flutter and Dart.
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-white/5">
+                        <div class="flex gap-1.5 text-[10px] text-slate-400">
+                            <span class="bg-slate-900/80 px-2 py-0.5 rounded">Flutter</span>
+                            <span class="bg-slate-900/80 px-2 py-0.5 rounded">Firebase</span>
+                        </div>
+                        <div class="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">FYP</div>
+                    </div>
+                </article>
+
+                <article class="glass-card rounded-2xl p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="w-10 h-10 bg-indigo-500/10 rounded-xl flex items-center justify-center text-indigo-400 mb-4">
+                            <i class="fa-solid fa-car-side text-lg"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-1 text-white">Drive N Rent System</h4>
+                        <p class="text-[11px] text-indigo-400 font-medium mb-3">Requirements Engineering &amp; Architecture</p>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            A comprehensive automobile rental operational engine. Modeled full software requirements pipelines, architectural systems, and database structures within a 4-member project team.
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-white/5">
+                        <div class="flex gap-1.5 text-[10px] text-slate-400">
+                            <span class="bg-slate-900/80 px-2 py-0.5 rounded">Draw.io</span>
+                            <span class="bg-slate-900/80 px-2 py-0.5 rounded">SQL</span>
+                        </div>
+                        <div class="text-[10px] font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded">System Core</div>
+                    </div>
+                </article>
+
+                <article class="glass-card rounded-2xl p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="w-10 h-10 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 mb-4">
+                            <i class="fa-solid fa-share-nodes text-lg"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-1 text-white">Zurita World Enterprise</h4>
+                        <p class="text-[11px] text-purple-400 font-medium mb-3">Digital Strategy Optimization</p>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Spearheaded targeted operations as part of the specialized Social Media sub-team. Structured digital marketing blueprints and cross-team content frameworks with design cells.
+                        </p>
+                    </div>
+                    <div class="mt-6 flex items-center justify-between pt-4 border-t border-white/5">
+                        <div class="flex gap-1.5 text-[10px] text-slate-400">
+                            <span class="bg-slate-900/80 px-2 py-0.5 rounded">Canva Pro</span>
+                            <span class="bg-slate-900/80 px-2 py-0.5 rounded">Analytics</span>
+                        </div>
+                        <div class="text-[10px] font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">Sub-Team</div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
+            
+            <div class="glass-card rounded-2xl p-6 md:p-8 flex flex-col">
+                <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-white flex-none">
+                    <i class="fa-solid fa-graduation-cap text-blue-500"></i> Academic History
+                </h3>
+                
+                <div class="relative max-h-[420px] overflow-y-auto pr-3 custom-scrollbar space-y-6 border-l border-white/10 pl-5 ml-2">
+                    <div class="relative">
+                        <span class="absolute -left-[25px] top-1.5 w-2.5 h-2.5 rounded-full bg-blue-500 border-2 border-[#0b1329]"></span>
+                        <span class="text-[11px] font-bold text-blue-400 tracking-wider uppercase">Undergraduate Degree</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Universiti Sultan Zainal Abidin (UniSZA)</h4>
+                        <p class="text-xs text-slate-400 mt-1">B.Sc. in Computer Science (Software Development) with Honours at the Faculty of Informatics &amp; Computing (FIK).</p>
+                    </div>
+                    
+                    <div class="relative">
+                        <span class="absolute -left-[25px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-600 border-2 border-[#0b1329]"></span>
+                        <span class="text-[11px] font-bold text-slate-400 tracking-wider uppercase">Secondary Education</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Sekolah Menengah Al Ittifaqiyyah Guai</h4>
+                        <p class="text-xs text-slate-400 mt-1">Completed secondary education and core foundational tracks prior to university entry.</p>
+                    </div>
+
+                    </div>
+                </div>
+
+            <div class="glass-card rounded-2xl p-6 md:p-8 flex flex-col">
+                <h3 class="text-lg font-bold mb-6 flex items-center gap-2 text-white flex-none">
+                    <i class="fa-solid fa-handshake-angle text-blue-500"></i> Local Optimization &amp; Operations
+                </h3>
+                
+                <div class="relative max-h-[420px] overflow-y-auto pr-3 custom-scrollbar space-y-6 border-l border-white/10 pl-5 ml-2">
+                    <div class="relative">
+                        <span class="absolute -left-[25px] top-1.5 w-2.5 h-2.5 rounded-full bg-blue-500 border-2 border-[#0b1329]"></span>
+                        <span class="text-[11px] font-bold text-blue-400 tracking-wider uppercase">Digital Profile Management</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Kak Ita Aiskrim Nyor Pulut Homemade</h4>
+                        <p class="text-xs text-slate-400 mt-1">Structured and executed digital profiling setups and managed verification milestones for local business deployments.</p>
+                    </div>
+                    
+                    <div class="relative">
+                        <span class="absolute -left-[25px] top-1.5 w-2.5 h-2.5 rounded-full bg-slate-600 border-2 border-[#0b1329]"></span>
+                        <span class="text-[11px] font-bold text-slate-400 tracking-wider uppercase">Operational Work Experience</span>
+                        <h4 class="text-sm font-bold text-white mt-0.5">Bartender &amp; Sales Assistant</h4>
+                        <p class="text-xs text-slate-400 mt-1">Acquired fast-paced workplace collaboration, customer operation, and time management skills working at BananaBro (Aeon Rawang) and within the retail foods sector at Aeon Rawang.</p>
+                    </div>
+
+                    </div>
+                </div>
+        </section>
+
     </main>
 
-    <!-- Simple Footer -->
-    <footer class="text-center p-6 border-t border-white/5 text-sm text-slate-500 glass">
-        <p>© 2026 Fahim Najme Ikhwan. Guided by Innovation.</p>
+    <footer class="border-t border-white/5 py-8 mt-12 bg-slate-950/40">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <p>&copy; 2026 | FNI </p>
+            <div class="flex gap-4">
+                <a href="https://github.com" target="_blank" class="hover:text-white transition"><i class="fab fa-github text-sm"></i></a>
+                <a href="https://www.linkedin.com/in/fahimnajmeikhwan" target="_blank" class="hover:text-white transition"><i class="fab fa-linkedin text-sm"></i></a>
+                <a href="contact.html" class="hover:text-white transition"><i class="fas fa-envelope text-sm"></i></a>
+            </div>
+        </div>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: true });
+        // Init Animation on Scroll (AOS)
+        AOS.init({
+            duration: 800,
+            once: true
+        });
 
-        // Mobile Menu Activation
+        // Toggle Responsive Navbar Menu
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
