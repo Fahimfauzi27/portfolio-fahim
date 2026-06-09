@@ -19,12 +19,12 @@ I specialize in modern mobile development and data-driven architectures:
 
 ## 🚀 Key Projects
 
-### [Trackza](https://fahimfauzi27.github.io/portfolio-fahim/)
+### [Trackza]
 *A real-time GPS bus tracking and management ecosystem designed for university transportation.*
 *   **Focus:** Stream optimization logic, GPS integration.
 *   **Tech Stack:** Flutter, Dart, GPS Streaming.
 
-### [Drive N Rent](https://fahimfauzi27.github.io/portfolio-fahim/)
+### [Drive N Rent]
 *An end-to-end car rental system covering database pipelines and user engineering workflows.*
 *   **Focus:** System Analysis, SQL Schema design.
 
